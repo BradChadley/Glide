@@ -2,7 +2,7 @@
 
 A personal Windows desktop companion for RustDesk and Tailscale, with guided setup, diagnostics, and signed in-app updates.
 
-[Download Glide Setup](https://github.com/BradChadley/Glide/releases/latest/download/Glide-Setup.exe)
+**Downloads paused:** version 0.12.0 was withdrawn after Microsoft Defender detected Glide-Setup.exe as Trojan:Win32/Wacatac.B!ml. The cause is under investigation; a false positive has not been confirmed. Do not restore the installer, allow the threat, or disable antivirus protection.
 
 Run Setup once on each PC. Close an older Glide window first, click **Install Glide**, then use the new Glide shortcut. Existing settings are preserved.
 
