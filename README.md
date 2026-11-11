@@ -1,34 +1,25 @@
 # Glide
 
-A personal Windows desktop companion for RustDesk and Tailscale, with guided setup, diagnostics, and signed in-app updates.
+A personal Windows remote desktop companion for RustDesk over Tailscale.
 
-**Downloads paused:** version 0.12.0 was withdrawn after Microsoft Defender detected Glide-Setup.exe as Trojan:Win32/Wacatac.B!ml. The cause is under investigation; a false positive has not been confirmed. Do not restore the installer, allow the threat, or disable antivirus protection.
+[Download Glide for Windows](https://github.com/BradChadley/Glide/releases/latest/download/Glide-Setup.msi)
 
-Run Setup once on each PC. Close an older Glide window first, click **Install Glide**, then use the new Glide shortcut. Existing settings are preserved.
+Close the old Glide window, open the MSI, and click **Install**. Do this once on each PC. Open Glide using its new desktop or Start menu shortcut. Afterward, use **Devices → Updates → Download update → Restart Glide**.
 
-For future releases, open **Devices → Updates**, choose **Download update**, then **Restart Glide** when ready. Update each PC independently. No ZIP extraction is needed.
+Windows Installer handles the application files, shortcuts, repair and removal. Setup does not change existing pairing, passwords, virtual displays, RustDesk settings or Tailscale policies. Updates keep the existing pinned signing key and previous-version recovery.
 
-## Requirements
+Windows 11 x64 with .NET Framework 4.8 or later is the intended platform. RustDesk and Tailscale are installed separately. No router port forwarding is needed.
 
-- Windows 11, x64, with .NET Framework 4.8.
-- Tailscale on both PCs, signed into the same private network.
-- Glide's verified RustDesk engine and the guided host setup.
+## Verification and source
 
-RustDesk and Tailscale are separate applications. Their binaries are not included in these release assets. No account data, device details, passwords, or release-signing private key are published here.
+[Release verification](https://github.com/BradChadley/Glide/releases/latest/download/Release-verification.txt) · [Source archive](https://github.com/BradChadley/Glide/releases/latest/download/Glide-source-0.13.0.zip) · [Release history](https://github.com/BradChadley/Glide/releases)
 
-## Updates and recovery
+The 0.13.0 app passed 211 isolated regression checks. Its MSI passed Windows Installer consistency validation and contains no custom installation actions or embedded setup executable. Defender reported no threats on the exact final MSI, app, runtime ZIP and source ZIP. The release report contains hashes and testing limits. A first live installation still needs user testing.
 
-Glide checks a pinned RSA-3072/SHA-256 release signature and package/file hashes before installing. Downloads are bounded and restricted to GitHub release hosts. Updates are staged beside the active app, and the previous version remains available under **Updates → Details & recovery**. If a new version cannot render its initial window, the updater restores the previous version.
+The MSI and launcher do not have a Windows Authenticode publisher certificate. Glide's signed update metadata is a separate protection; it does not establish Windows publisher reputation.
 
-The first setup executable is not Authenticode-signed. The release-signing key authenticates update payloads after that initial trust step; it is not a Windows publisher certificate. This personal preview has not had an independent security audit. A local startup check does not establish remote connection readiness.
+## Retired 0.12.0 installer
 
-Signed metadata expires and must be refreshed by the publisher. Expiration prevents installing stale updates; it does not prevent launching an installed version. Key rotation or changes to the original launcher require a new trusted setup.
+The old custom `Glide-Setup.exe` was withdrawn after a Microsoft Defender detection. It remains unavailable. The exact cause is unconfirmed and no vendor false-positive determination was requested. The new MSI replaces the custom installer architecture; it does not clear the old file. Do not restore the old installer or disable protection. Negative scans are point-in-time evidence, not a guarantee.
 
-## Source and notices
-
-The release includes a separate source ZIP with the build script and tests. Runtime guides include the updater's boundaries and recovery instructions. RustDesk and Tailscale retain their own licenses and notices.
-
-- [RustDesk](https://github.com/rustdesk/rustdesk)
-- [Tailscale](https://tailscale.com/)
-
-This repository currently distributes a personal app and its release assets. It is not an official RustDesk or Tailscale project.
+This is a personal project, not an independently audited remote desktop product. No personal settings, credentials, diagnostic reports or private release key are published.
