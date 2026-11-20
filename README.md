@@ -1,5 +1,5 @@
 # Glide
-**0.15.1 turns on file transfer:** send files both ways between the desktop and the laptop, inside the session or with RustDesk's File Transfer window, which now works while a session is open. Update both PCs, then on the laptop open Protect, scan and choose Apply RustDesk settings once.
+**0.16.0 controls more than one computer:** the desktop lists every computer it controls, each with its own Connect button, and each computer has its own entry in Glide's Tailscale rule. Update Glide on the desktop and every computer; your current setup carries over unchanged.
 
 A personal Windows remote desktop companion for RustDesk over Tailscale.
 
@@ -17,9 +17,9 @@ Windows 11 x64 with .NET Framework 4.8 or later is the intended platform. Initia
 
 ## Verification and source
 
-[Release verification](https://github.com/BradChadley/Glide/releases/latest/download/Release-verification.txt) · [Source archive](https://github.com/BradChadley/Glide/releases/download/v0.15.1/Glide-source-0.15.1.zip) · [Release history](https://github.com/BradChadley/Glide/releases)
+[Release verification](https://github.com/BradChadley/Glide/releases/latest/download/Release-verification.txt) · [Source archive](https://github.com/BradChadley/Glide/releases/download/v0.16.0/Glide-source-0.16.0.zip) · [Release history](https://github.com/BradChadley/Glide/releases)
 
-The 0.15.1 app passed 268 isolated regression checks. Production vendor download/signature checks and isolated signed Glide staging passed. Its MSI passed consistency validation and contains no custom installation actions or embedded setup executable. Defender reported no threats on the exact final MSI, app, runtime ZIP and source ZIP. Real file transfer, phone access, actual vendor installation, settings preservation through a live upgrade and the two-PC experience still need user testing; the release report records these limits.
+The 0.16.0 app passed 292 isolated regression checks, and three independent code reviews ran before release. Production vendor download/signature checks and isolated signed Glide staging passed. Its MSI passed consistency validation and contains no custom installation actions or embedded setup executable. Defender reported no threats on the exact final MSI, app, runtime ZIP and source ZIP. Several real computers together, file transfer, phone access, actual vendor installation and settings preservation through a live upgrade still need user testing; the release report records these limits.
 
 The MSI and launcher do not have a Windows Authenticode publisher certificate. Glide's signed update metadata is a separate protection; it does not establish Windows publisher reputation.
 
